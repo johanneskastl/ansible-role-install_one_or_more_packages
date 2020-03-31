@@ -3,5 +3,5 @@
 
 - name: "Install packages"
   package:
-    name: "{{ packages_to_be_installed}}"
+    name: "{{ packages_to_be_installed }}"
     state: "present"
