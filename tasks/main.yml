@@ -5,3 +5,13 @@
   package:
     name: "{{ packages_to_be_installed }}"
     state: "present"
+  when: 'ansible_distribution != "openSUSE MicroOS"'
+
+- name: "Install packages"
+  command:
+  args:
+  command: '/usr/sbin/transactional-update --non-interactive pkg install {{ packages_to_be_installed | join(" ") }}'
+  when: 'ansible_distribution == "openSUSE MicroOS"'
+  notify:
+    - 'Reboot'
+    - 'Wait for the machine(s) to be ready again'
