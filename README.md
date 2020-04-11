@@ -1,3 +1,5 @@
+![Ansible Lint](https://github.com/johanneskastl/ansible-role-install_one_or_more_packages/workflows/Ansible%20Lint/badge.svg)
+
 install_one_or_more_packages
 =========
 
@@ -11,7 +13,7 @@ None.
 Role Variables
 --------------
 
-packages_to_be_installed: List of packages that should be installed.
+`packages_to_be_installed`: List of packages that should be installed.
 
 Dependencies
 ------------

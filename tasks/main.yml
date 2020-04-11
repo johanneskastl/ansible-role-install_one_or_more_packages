@@ -10,7 +10,7 @@
 - name: "Install packages"
   command:
   args:
-  command: '/usr/sbin/transactional-update --non-interactive pkg install {{ packages_to_be_installed | join(" ") }}'
+    cmd: '/usr/sbin/transactional-update --non-interactive pkg install {{ packages_to_be_installed | join(" ") }}'
   when: 'ansible_distribution == "openSUSE MicroOS"'
   notify:
     - 'Reboot'
