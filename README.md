@@ -13,7 +13,7 @@ None.
 Role Variables
 --------------
 
-packages_to_be_installed: List of packages that should be installed.
+`packages_to_be_installed`: List of packages that should be installed.
 
 Dependencies
 ------------
