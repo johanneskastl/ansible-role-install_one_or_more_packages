@@ -25,7 +25,7 @@ Example Playbook
 
     - hosts: servers
       roles:
-         - { role: johanneskastl.install_one_or_more_packages}
+         - { role: 'johanneskastl.install_one_or_more_packages' }
 
 License
 -------
