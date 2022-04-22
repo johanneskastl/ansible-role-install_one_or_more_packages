@@ -1,5 +1,6 @@
 galaxy_info:
   role_name: 'install_one_or_more_packages'
+  namespace: 'johanneskastl'
   author: 'Johannes Kastl'
   description: 'Install one or more packages, defined by a variable handed over to the role'
   company: 'B1 Systems GmbH'
