@@ -2,13 +2,13 @@
 # install_one_or_more_packages/tasks/main.yml
 
 - name: "Install packages"
-  package:
+  ansible.builtin.package:
     name: "{{ packages_to_be_installed }}"
     state: "present"
   when: 'ansible_distribution != "openSUSE MicroOS"'
 
 - name: "Install packages on openSUSE MicroOS using transactional-update"
-  command:
+  ansible.builtin.command:
   args:
     cmd: '/usr/sbin/transactional-update --non-interactive pkg install {{ packages_to_be_installed | join(" ") }}'
   when: 'ansible_distribution == "openSUSE MicroOS"'
