@@ -7,7 +7,7 @@
     state: "present"
   when: 'ansible_distribution != "openSUSE MicroOS"'
 
-- name: "Install packages"
+- name: "Install packages on openSUSE MicroOS using transactional-update"
   command:
   args:
     cmd: '/usr/sbin/transactional-update --non-interactive pkg install {{ packages_to_be_installed | join(" ") }}'
