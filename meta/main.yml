@@ -22,7 +22,7 @@ galaxy_info:
     - name: opensuse
       versions:
         - all
-    - name: SUSE
+    - name: SLES
       versions:
         - all
     - name: Ubuntu
