@@ -13,9 +13,6 @@ galaxy_info:
     - name: SUSE
       versions:
         - all
-    - name: openSUSE Leap
-      versions:
-        - all
     - name: CentOS
       versions:
         - all
