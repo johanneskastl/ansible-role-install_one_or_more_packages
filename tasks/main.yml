@@ -8,9 +8,9 @@
   when: 'ansible_distribution != "openSUSE MicroOS"'
 
 - name: "Install packages on openSUSE MicroOS using transactional-update"
-  ansible.builtin.command:
-  args:
-    cmd: '/usr/sbin/transactional-update --non-interactive pkg install {{ packages_to_be_installed | join(" ") }}'
+  community.general.zypper:
+    name: "{{ packages_to_be_installed }}"
+    state: "present"
   when: 'ansible_distribution == "openSUSE MicroOS"'
   notify:
     - 'Reboot'
