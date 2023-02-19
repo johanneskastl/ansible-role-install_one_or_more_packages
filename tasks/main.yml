@@ -5,13 +5,15 @@
   ansible.builtin.package:
     name: "{{ packages_to_be_installed }}"
     state: "present"
-  when: 'ansible_distribution != "openSUSE MicroOS"'
+  when:
+    - 'ansible_distribution != "openSUSE MicroOS"'
 
 - name: "Install packages on openSUSE MicroOS using transactional-update"
   community.general.zypper:
     name: "{{ packages_to_be_installed }}"
     state: "present"
-  when: 'ansible_distribution == "openSUSE MicroOS"'
+  when:
+    - 'ansible_distribution == "openSUSE MicroOS"'
   notify:
     - 'Reboot'
     - 'Wait for the machine(s) to be ready again'
