@@ -9,12 +9,15 @@
     - 'ansible_distribution != "openSUSE MicroOS"'
     - 'ansible_distribution != "openSUSE Leap Micro"'
 
-- name: "Install packages on openSUSE MicroOS using transactional-update"
+- name: "Install packages on openSUSE MicroOS / openSUSE Leap Micro with a reboot"
   community.general.zypper:
     name: "{{ packages_to_be_installed }}"
     state: "present"
   when:
-    - 'ansible_distribution == "openSUSE MicroOS"'
+    - '
+      ansible_distribution == "openSUSE MicroOS"
+      or ansible_distribution == "openSUSE Leap Micro"
+      '
   notify:
     - 'Reboot'
     - 'Wait for the machine(s) to be ready again'
