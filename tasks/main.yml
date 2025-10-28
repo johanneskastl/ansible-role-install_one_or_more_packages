@@ -1,23 +1,23 @@
 ---
 # install_one_or_more_packages/tasks/main.yml
 
-- name: "Install packages"
+- name: Install packages
   ansible.builtin.package:
     name: "{{ packages_to_be_installed }}"
-    state: "present"
+    state: present
   when:
-    - 'ansible_distribution != "openSUSE MicroOS"'
-    - 'ansible_distribution != "openSUSE Leap Micro"'
+    - ansible_distribution != "openSUSE MicroOS"
+    - ansible_distribution != "openSUSE Leap Micro"
 
-- name: "Install packages on openSUSE MicroOS / openSUSE Leap Micro with a reboot"
+- name: Install packages on openSUSE MicroOS / openSUSE Leap Micro with a reboot
   community.general.zypper:
     name: "{{ packages_to_be_installed }}"
-    state: "present"
+    state: present
   when:
     - '
       ansible_distribution == "openSUSE MicroOS"
       or ansible_distribution == "openSUSE Leap Micro"
       '
   notify:
-    - 'Reboot'
-    - 'Wait for the machine(s) to be ready again'
+    - Reboot
+    - Wait for the machine(s) to be ready again
